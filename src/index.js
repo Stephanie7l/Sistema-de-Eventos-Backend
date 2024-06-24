@@ -1,6 +1,8 @@
+require("dotenv").config({path: '../.env'});
+
 const app = require("./App");
-const Loaders = require("./Loaders/index");
+const startDB = require("./Config/mongodb");
 
-Loaders.start();
+startDB();
 
-app.listen(8000, () => console.log("Servidor rodando!"));
+app.listen(process.env.PORT, () => console.log("Servidor rodando!"));
